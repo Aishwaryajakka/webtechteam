@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Issued Books</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+<!--      <link rel="stylesheet" type="text/css" href="style.css">  -->
+    <link rel="stylesheet" type="text/css" href="../style1.css"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b1490666c5.js" crossorigin="anonymous"></script>
+  </head>
+<body class="container">
+   <% if (role!="Admin") { %>
+      <%- include('navbar') %>
+       <% } else { %>
+      <%- include('navbaradmin') %>
+      <% } %>
+  
+    <div class="jumbotron">
+     <h1>
+       <br/>
+      Issued Books
+    </h1>
+  </div>
+    <div class="box">
+
+    <% if (issue) { %>
+   
+<!--   <h6>
+      <a href="/cart">Cart</a>
+    </h6>  -->
+  
+   <table class="table table-hover">
+      <tbody><tr><th>Name</th><th>Item code</th><th>Item type</th><th> Issue Date</th><th> Return Date</th></tr>
+        <% issue.forEach(function(issue){   %>
+        <tr>
+          <td><%= issue.Name %></td>
+          <td><%= issue.Code %></td>
+          <td><%= issue.Type %></td>
+          <td><%= issue.Issue_Date.toDateString()%></td>
+          <td><%= issue.Return_Date.toDateString()%></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <p>You have issued <%= issue.length %> items</p>
+  <% } else { %>
+    <p>There are no item in the database.</p>
+    <% } %>
+  </div>
+</body>
+</html> 

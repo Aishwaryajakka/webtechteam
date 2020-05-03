@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Journals</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../style1.css"> 
+<!--     <link rel="stylesheet" type="text/css" href="style.css">  -->
+    <script src="https://kit.fontawesome.com/b1490666c5.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  </head>
+<body class= "container">
+ <% if (role!="Admin") { %>
+      <%- include('../navbar') %>
+       <% } else { %>
+      <%- include('../navbaradmin') %>
+      <% } %>
+  
+  
+  
+  
+   <div class = "jumbotron">
+        <h1>
+          <br/>
+           Add a new Journal
+        </h1>
+    </div>
+  
+  
+   <div class="box">
+    <form action="/journals<%= %>/addjournal" method="post">
+      <div class="form-group">
+            <label for="Journal_Code">Journal Code</label>
+          <input type = "text" class="form-control" id="Journal_Code" name="Journal_Code" placeholder="Enter Journal Code like J001" required minlength="4" maxlength="4" required>
+      </div>
+      <div class="form-group">
+            <label for="Journal_Name">Journal Name</label>
+          <input type="text" class="form-control" id="Journal_Name"  placeholder="Journal Name here" name="Journal_Name" required> 
+      </div>
+      <div class="form-group">
+            <label for="Editor">Editor</label>
+          <input type="text" class="form-control" id="Editor" placeholder="Editor name here" name="Editor" required> 
+      </div>
+      <div class="form-group">
+        <label for="Genre">Genre</label>
+        <input type="text" class="form-control"  id="Genre" name="Genre"  placeholder="Genre here" required>
+      </div>
+      <div class="form-group">
+        <label for="First_Published">First Published</label>
+        <input type="date" class="form-control"  id="First_Published" name="First_Published" placeholder="02-01-2005" required>
+      </div>
+      <div class="form-group">
+        <label for="Frequency">Frequency</label>
+        <input type="text" class="form-control" id="Frequency" placeholder="yearly" name="Frequency" required>
+      </div>
+      <div class="form-group">
+        <label for="Copies">Total Copies </label>
+        <input type="text" class="form-control" id="Copies" placeholder="1" name="Copies" required>
+      </div>
+      <div class="form-group">
+        <label for="Copies">Available Copies </label>
+        <input type="text" class="form-control" id="Available_copies" placeholder="Enter a minimum of 1" name="Available_copies" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add a new journal</button>
+  </form>
+  </div>
+
+  
+</body>
+</html> 

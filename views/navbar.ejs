@@ -1,0 +1,42 @@
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+<!--   <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top"> -->
+
+         <a class="navbar-brand" href="/successscren"><i class="fas fa-home fa-lg"></i></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+               <!--       Vipul -->
+               <li class="nav-item">
+                  <a class="nav-link" href="/users/editprofile">Profile <i class="far fa-user"></i></a>
+               </li>
+               <!--        -->
+               <li class="nav-item">
+                  <a class="nav-link" href="/books/availablebooks">Books <i class="fas fa-book"></i></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/journals/availablejournals">Journals <i class="fas fa-newspaper"></i></a>
+               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/issue/checkout">Issued <i class="fas fa-book-reader"></i></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/cart">Cart <i class="fas fa-shopping-cart"></i></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/logoff">Logoff <i class="fas fa-sign-out-alt"></i></a>
+               </li>
+              
+            </ul>
+           <ul class="navbar-nav ml-auto">
+           <form class="form-inline" action="/books/search" method="post">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search for books" name="search">
+            </form>
+             <li class="nav-item">
+                  <a class="nav-link" >Welcome <%= user%> <i class="far fa-smile"></i></a>
+               </li>
+           </ul>
+         </div>
+      </nav>

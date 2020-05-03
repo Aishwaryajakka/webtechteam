@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Books</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+    
+    <link rel="stylesheet" type="text/css" href="../style1.css"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b1490666c5.js" crossorigin="anonymous"></script>
+  </head>
+<body class="container">
+<% if (role!="Admin") { %>
+      <%- include('../navbar') %>
+       <% } else { %>
+      <%- include('../navbaradmin') %>
+      <% } %>
+<div class="jumbotron">
+     <h1>
+       <br/>
+      Books
+    </h1>
+  </div>
+  
+<% if (books) { %>  
+  <br>
+  <div class="box">    
+     <table class="table table-hover">       
+      <tbody><tr><th>Book Code</th><th>Book Name</th><th>Author</th><th>Published Year</th><th>Total Copies</th><th>Available Copies</th><th>Edit</th><th>Delete</th></tr>
+        <% books.forEach(function(books){  %>
+        <tr>
+          <td><%= books.Book_Code %></td>
+          <td><%= books.Book_Name %></td>
+          <td><%= books.Author %></td>
+          <td><%= books.Published_Year %></td>
+          <td><%= books.Copies %></td>
+          <td><%= books.Available_copies %></td>
+          <td><a class="button" href="/books/<%=books.Book_Code %>/editbook"><i class="fas fa-edit fa-lg"></i></a></td>
+          <td><a class="button" href="/books/<%= books.Book_Code %>/deletebook"><i class="far fa-trash-alt fa-lg"></i></a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+       
+    </table>
+    <p>There are <%= books.length %> books in the database.</p>
+  <% } else { %>
+    <p>There are no books in the database.</p>
+    <% } %>
+  </div> 
+  
+  
+</body>
+</html> 

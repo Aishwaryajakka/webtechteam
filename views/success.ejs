@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Library Management System</title>
+      <meta name="description" content="A cool thing made with Glitch">
+      <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- import the webpage's stylesheet -->
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+          <!-- import the webpage's javascript file -->
+     <script src="https://kit.fontawesome.com/b1490666c5.js" crossorigin="anonymous"></script>
+      <script src="script.js" defer></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+   </head>
+   <body class="container">
+     <% if (role!="Admin") { %>
+      <%- include('navbar') %>
+       <% } else { %>
+      <%- include('navbaradmin') %>
+      <% } %>
+     
+      <div class = "jumbotron">
+        <%- include('message') %>
+         <h1 id='Welcome'>
+            <br/>
+            Welcome to Online  Library
+         </h1>
+      </div>
+      <div class="box">
+         <div class="accordion" id="accordionExample">
+            <div class="card">
+               <div class="card-header" id="headingOne">
+                  <h2 class="mb-0">
+                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                     ABOUT
+                     </button>
+                  </h2>
+               </div>
+               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                  <div class="card-body">
+                     <div class = "row">
+                        <div class= "col-lg-8">
+                           <p align ="center">
+                              Hi There! Welcome to the Online Library System. 
+                              Our web catalog allows avid readers to browse and borrrow any of the 30 books and journals.
+                              Choose from non-finction novels, autobiographies and popular Quaterly and Weekly Jounals.
+                              <br/>
+                              <br/>
+                              Check out the <strong>FAQ</strong> for more details 
+                           </p>
+                        </div>
+                        <div class= "col-sm-4">
+                           <!-- Button trigger modal -->
+                           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                           FAQ
+                           </button>
+                           <a href="/books/availablebooks"> <button type="button" class="btn btn-primary"> Available Books </button></a> 
+                           <a href="/journals/availablejournals"> <button type="button" class="btn btn-primary">Available Journals</button></a> 
+                           <!-- Modal -->
+                           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                              <div class="modal-dialog" role="document">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <h4 class="modal-title" id="myModalLabel">Frequently Asked Questions</h4>
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="accordion" id="accordionModal">
+                                          <div class="card">
+                                             <div class="card-header" id="heading_One">
+                                                <h5 class="mb-0">
+                                                   <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_One" aria-expanded="true" aria-controls="collapse_One">
+                                                   What do I do if a book I want is not available?
+                                                   </button>
+                                                </h5>
+                                             </div>
+                                             <div id="collapse_One" class="collapse show" aria-labelledby="heading_One" data-parent="#accordionModal">
+                                                <div class="card-body">
+                                                   The books are reserved by the librarian on a <em>First Come First Serve </em> basis.  Please email our admin at <strong>example@gmail.com  </strong>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="card">
+                                             <div class="card-header" id="heading_Two">
+                                                <h5 class="mb-0">
+                                                   <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse_Two" aria-expanded="false" aria-controls="collapse_Two">
+                                                   I want to donate my books to the library, How do I go about it?
+                                                   </button>
+                                                </h5>
+                                             </div>
+                                             <div id="collapse_Two" class="collapse" aria-labelledby="heading_Two" data-parent="#accordionModal">
+                                                <div class="card-body">
+                                                   That's Great!!! We Welcome all donations to our Library. <br/>  Please make you have have reviewed the checklist before donation.
+                                                   <ul class="list-group">
+                                                      <li class="list-group-item">Kindly donate books in book condition</li>
+                                                      <li class="list-group-item">Inform Librarian if there are any missing pages</li>
+                                                      <li class="list-group-item">Please refrain from donating books that contain a lot of <strong><u>Sharpie</u></strong> marks</li>
+                                                   </ul>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="card">
+                                             <div class="card-header" id="heading_Three">
+                                                <h5 class="mb-0">
+                                                   <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse_Three" aria-expanded="false" aria-controls="collapse_Three">
+                                                   Can I borrow more than one copy of the same book?
+                                                   </button>
+                                                </h5>
+                                             </div>
+                                             <div id="collapse_Three" class="collapse" aria-labelledby="heading_Three" data-parent="#accordionModal">
+                                                <div class="card-body">
+                                                   Sorry, we allow a user to borrow only one copy of a book.
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- End Modal-->
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                     Working Hours
+                     </button>
+                  </h2>
+               </div>
+               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                     <p align ="center">
+                        We are available Monday to Friday 8AM- 11PM .
+                        <br/> We are closed on weekends.
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" id="headingThree">
+                  <h2 class="mb-0">
+                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                     Upcoming Events organised by the library
+                     </button>
+                  </h2>
+               </div>
+               <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="card-body">
+                     <!--     3 images and text to apply css and javascript to show and hide on click -->
+                     
+                        <div class="TextOverImage"
+                          
+                           style="background-image:url(https://cdn.glitch.com/e243a847-f384-4482-a909-2afc179c591b%2F6b13f96b-5ba2-4722-8aac-229628e28cc3.jpg?v=1587604199769)"
+                           >
+                           <div  >
+                              <hgroup>
+                                 <h3>
+                                    Karaoke Music Night 
+                                 </h3>
+                                  <h4>
+                                    On April 25th, 2020 at our very own Senott Square, Room 6448
+                                </h4>
+                                 <h5>
+                                    Bring out your inner singing talent and groove to the music on the Karaoke Night Special
+                                 </h5>
+                                 
+                                  Hosted by DJ TeeJay. <br />
+                                
+                              </hgroup>
+                           </div>
+                        </div>
+                        <div
+                           class="TextOverImage"
+                           style="background-image:url(https://cdn.glitch.com/e243a847-f384-4482-a909-2afc179c591b%2F90ff5d27-8eac-4ba6-bf3f-979745e97028.jpg?v=1587604211242)"
+                           >
+                           <div>
+                              <hgroup>
+                                 <h3>
+                                    Creative Writing Workshop
+                                 </h3>
+                                 <h4>
+                                    On May 5th, 2020 at our very own Senott Square, Room 6448
+                                 </h4>
+                                 <h5>
+                                    Put your creative pens at work and bring your fantasy to life .
+                                 </h5>
+                                  Hosted by Shubrika Senghal
+                                
+                              </hgroup>
+                           </div>
+                        </div>
+                        <div
+                           class="TextOverImage"
+                           style="background-image:url(https://cdn.glitch.com/e243a847-f384-4482-a909-2afc179c591b%2F70f06dca-8a7b-4595-9dcc-f926d232d290.jpg?v=1587604203718)"
+                           >
+                           <div>
+                              <hgroup>
+                                 <h3>
+                                    Brush Calligraphy Workshop
+                                 </h3>
+                                 <h4>
+                                    On June 7th, 2020 at our very own Senott Square, Room 6448
+                                 </h4>
+                                 <h5>
+                                    In all in the letters. Come and learn the movement of the letters.
+                                 </h5>
+                                 Hosted by Aishwarya Jakka
+                              </hgroup>
+                           </div>
+                        </div>
+                     
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-header" id="headingFour">
+                  <h2 class="mb-0">
+                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                     Guess What ??? You can make a Wish List !!!!!!!!!!!!
+                     </button>
+                  </h2>
+               </div>
+               <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                  <div class="card-body">
+                     <div class="row">
+                     <div class="row">
+                        <div align="center" class="col-sm">
+               
+                        <form name="toDoListForm" id="toDoListForm">
+                           <div class="form-group">
+                        <label for="task">Enter whatever you want to save</label>
+                                <textarea class="form-control" id="task" name="task"  rows="3"></textarea>
+       
+
+                          </div>
+                     
+                          <div class="form-group">
+                       <table>
+                                   <tr>
+                     <td><input type="submit" id="add" class="add-button btn btn-primary" value="Add Task"></td>
+                         <td><input type="reset" id="resetEv" class="clear-button btn btn-warning" value="Reset"></td>
+                           </tr>
+                       </table>
+       
+
+                    </div>
+                          
+                      </form>  
+                           </div>
+                       <div  class = "col-sm-2" >
+                          <br/>
+                        </div> 
+                          
+                        <div  class = "col-sm" id="mylist">
+                          
+                        </div> 
+                   </div>
+                  </div>
+               </div>
+            </div>
+          
+         </div>
+      </div>
+      <!-- include the Glitch button to show what the webpage is about and
+         to make it easier for folks to view source and remix -->
+      <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+      <script src="https://button.glitch.me/button.js"></script>
+   </body>
+</html>

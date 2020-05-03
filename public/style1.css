@@ -1,0 +1,30 @@
+.container {
+  background-image: url("https://cdn.glitch.com/e243a847-f384-4482-a909-2afc179c591b%2Fphoto-1507842217343-583bb7270b66.jpeg?v=1587280100558");
+  height: 100%;
+  background-position: center;
+}
+.box {
+  background-color: black;
+  margin: 30px auto;
+  opacity: 0.8;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+.jumbotron {
+  background-color: burlywood !important;
+  color: #B94629;
+  margin-bottom: -5px;
+}
+
+#Welcome {
+  text-align: center;
+}
+.navbar {
+  background-color: #B94629 !important;
+  color: White;
+}
+
+/* .col-lg-8{
+  color:black
+} */

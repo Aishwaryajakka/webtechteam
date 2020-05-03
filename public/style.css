@@ -1,0 +1,244 @@
+/* this file is loaded by index.html and styles the page */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* li:last-child {
+  float: right;
+} */
+ .navbar-custom { 
+            background-color: #B94629 !important; 
+        } 
+
+body {
+  font-family: roboto;
+  user-select: none;
+}
+.jumbotron {
+  background-color: burlywood !important;
+  color: saddlebrown;
+  text-align: center;
+}
+.container {
+  width: 450px;
+  margin: 30px auto;
+}
+.container1 {
+  margin: 30px auto;
+}
+
+.signup,
+.login {
+  width: 50%;
+  background: #fff;
+  float: left;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.signup-form,
+.login-form {
+  background: #fff;
+  padding: 40px;
+  clear: both;
+  width: 100%;
+  box-sizing: border-box;
+  height: 400px;
+}
+
+.input {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+  border: 2px solid #e9eaea;
+  color: #3e3e40;
+  font-size: 14px;
+  outline: none;
+  transform: all 0.5s ease;
+}
+
+.input:focus {
+  border: 2px solid #34b3a0;
+}
+
+.btn {
+  width: 100%;
+  background: #34b3a0;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+span a {
+  text-decoration: none;
+  color: #000;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #3e3e40;
+  font-family: roboto;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #3e3e40;
+  font-family: roboto;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #3e3e40;
+  font-family: roboto;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #3e3e40;
+  font-family: roboto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 2em 1em;
+  line-height: 1.5em;
+}
+
+h1 {
+  font-style: italic;
+  color: #373fff;
+}
+
+input {
+  border: 1px solid silver;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+form button {
+  background-color: #bbbbf2;
+  border: 2px solid currentColor;
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-size: inherit;
+  line-height: 1.4em;
+  padding: 0.25em 1em;
+  max-width: 20ch;
+}
+
+form button:hover {
+  background-color: lavender;
+}
+
+footer {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid lightgrey;
+}
+.navbar{ 
+            background-color: #B94629 !important; 
+            color: White;
+        } 
+.container {
+  background-image: url("https://cdn.glitch.com/e243a847-f384-4482-a909-2afc179c591b%2Fphoto-1507842217343-583bb7270b66.jpeg?v=1587280100558");
+  height: 100%;
+  background-position: center;
+}
+.container1 {
+  background-image: url("https://cdn.glitch.com/e243a847-f384-4482-a909-2afc179c591b%2Fphoto-1507842217343-583bb7270b66.png?v=1587287195790");
+  height: 100%;
+  background-position: center;
+}
+.box1 {
+  height: 450px;
+  width: 450px;
+  background-color: black;
+  margin: 190px auto;
+  opacity: 0.8;
+  color: white;
+  padding: 20px;
+  font-size: 16px;
+}
+.box2 {
+  height: 1550px;
+  width: 1550px;
+  background-color: black;
+  margin: 30px auto;
+  opacity: 0.8;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+.form2 {
+  display: none;
+}
+
+.add-button {
+  
+  color: blue;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.clear-button {
+  
+  color: blue;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* HOMEPAGE EVENT TEXT OVER IMAGE */
+
+.TextOverImage {
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  display: inline-block;
+  border-radius: 16px;
+  margin: 4px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  position: center;
+}
+
+.TextOverImage div {
+  position: relative;
+  color: #fff;
+  padding: 8px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  font-size: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 15%;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.TextOverImage.show div {
+  opacity: 1;
+  padding-top: 10%;
+  visibility: visible;
+}
+
+/* HOMEPAGE EVENT TEXT OVER IMAGE ENDS */

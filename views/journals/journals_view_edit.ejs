@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Journals</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+
+<!--    <link rel="stylesheet" type="text/css" href="style.css">  -->
+<!--     <link rel="stylesheet" type="text/css" href="../style1.css">  -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b1490666c5.js" crossorigin="anonymous"></script>
+    <style>
+      .container {
+ background-image: url("https://cdn.glitch.com/e243a847-f384-4482-a909-2afc179c591b%2Fphoto-1507842217343-583bb7270b66.jpeg?v=1587280100558");
+  height: 100%;
+  background-position: center;
+}
+      .box {
+  background-color: black;
+  margin: 30px auto;
+  opacity: 0.8;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+.jumbotron {
+  background-color: burlywood !important;
+  color: #B94629;
+  margin-bottom: -5px;
+}
+
+#Welcome {
+  text-align: center;
+}
+.navbar {
+  background-color: #B94629 !important;
+  color: White;
+}
+    </style>
+  </head> 
+
+<body class= "container">
+<% if (role!="Admin") { %>
+      <%- include('../navbar') %>
+       <% } else { %>
+      <%- include('../navbaradmin') %>
+      <% } %>
+  
+    <div class = "jumbotron">
+        <h1>
+          <br/>
+           Edit a Journal
+        </h1>
+    </div>
+  
+  
+  
+  <div class="box">
+    <form action="/journals<%= %>/editjournal" method="post">
+      <div class="form-group">
+            <label for="Journal_Code">Journal Code</label>
+          <input type = "text" class="form-control" id="Journal_Code" name="Journal_Code" value="<%=Journals.Journal_Code%>" required minlength="4" required readonly>
+      </div>
+      <div class="form-group">
+            <label for="Journal_Name">Journal Name</label>
+          <input type="text" class="form-control" id="Journal_Name"  value="<%=Journals.Journal_Name%>" name="Journal_Name" required> 
+      </div>
+      <div class="form-group">
+            <label for="Editor">Author</label>
+          <input type="text" class="form-control" id="Editor" value="<%=Journals.Editor%>" name="Editor" required> </div>
+      <div class="form-group">
+        <label for="Genre">Genre</label>
+        <input type="text" class="form-control"  id="Genre" name="Genre"  value="<%=Journals.Genre%>" required>
+      </div>
+      <div class="form-group">
+        <label for="First_Published">First Published</label>
+        <input type="Date" class="form-control"  id="First_Published" name="First_Published" value="<%= Journals.First_Published.toDateString()%>" required>
+      </div>
+      <div class="form-group">
+        <label for="Frequency">Frequency</label>
+        <input type="text" class="form-control" id="Frequency" value="<%=Journals.Frequency%>" name="Frequency" minlength="4" required>
+      </div>
+      <div class="form-group">
+        <label for="Copies">Total Copies </label>
+        <input type="text" class="form-control" id="Copies" value="<%=Journals.Copies%>" name="Copies" required>
+      </div>
+      <div class="form-group">
+        <label for="Copies">Available Copies </label>
+        <input type="text" class="form-control" id="Available_copies" value="<%=Journals.Available_copies%>" name="Available_copies" required >
+      </div>
+      <button type="submit" class="btn btn-primary">Update Journal</button>
+  </form>
+  </div>
+
+  
+</body>
+</html> 

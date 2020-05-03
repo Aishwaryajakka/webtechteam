@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Journals</title>
+      <meta name="description" content="A cool thing made with Glitch">
+      <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- import the webpage's stylesheet -->
+      <!--     <link rel="stylesheet" type="text/css" href="style.css"> -->
+      <link rel="stylesheet" type="text/css" href="../style1.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+      <script src="https://kit.fontawesome.com/b1490666c5.js" crossorigin="anonymous"></script>
+   </head>
+   <body class="container">
+      <% if (role!="Admin") { %>
+      <%- include('../navbar') %>
+      <% } else { %>
+      <%- include('../navbaradmin') %>
+      <% } %>  
+      <div class="jumbotron">
+         <h1>
+            <br/>
+            Journals
+         </h1>
+      </div>
+      <div class="box">
+         <% if (journals) { %>
+         <table class="table table-hover">
+            <tbody>
+               <tr>
+                  <th>Journal Name</th>
+                  <th>Editor</th>
+                  <th>Genre</th>
+                  <th>First Published </th>
+                  <th>Frequency</th>
+                  <th>Available Copies</th>
+                  <th>Add to cart</th>
+               </tr>
+               <% journals.forEach(function(journal){   %>
+               <tr>
+                  <td><%= journal.Journal_Name %></td>
+                  <td><%= journal.Editor %></td>
+                  <td><%= journal.Genre %></td>
+                  <td><%= journal.First_Published %></td>
+                  <td><%= journal.Frequency %></td>
+                  <td><%= journal.Available_copies %></td>
+                  <td><a class="button" href="/journals/<%= journal.Journal_Code %>/addtocart"><i class="fas fa-cart-plus fa-2x"></i></a></td>
+                  <!--           <td><i class="fas fa-cart-plus"></i></td> -->
+               </tr>
+               <% }); %>
+            </tbody>
+         </table>
+         <p>There are <%= journals.length %> Journals in the database.</p>
+         <% } else { %>
+         <p>There are no books in the database.</p>
+         <% } %>
+      </div>
+   </body>
+</html>
