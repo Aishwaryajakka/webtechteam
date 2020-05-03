@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Books</title>
+      <meta name="description" content="A cool thing made with Glitch">
+      <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- import the webpage's stylesheet -->
+      <link rel="stylesheet" type="text/css" href="../style1.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://kit.fontawesome.com/b1490666c5.js" crossorigin="anonymous"></script>
+      <!--  <link rel="stylesheet" type="text/css" href="../style.css"> -->
+   </head>
+   <body class="container">
+      <% if (role!="Admin") { %>
+      <%- include('../navbar') %>
+      <% } else { %>
+      <%- include('../navbaradmin') %>
+      <% } %>
+      
+      <div class="jumbotron">
+         <h1>
+            <br/>
+            Books
+         </h1>
+      </div>
+      <% if (books) { %>
+      <!--   <h6>
+         <a href="/cart">Cart <i class="fas fa-shopping-cart fa-2x"></i></a>
+         </h6>  -->
+      <div class="box">
+         <table class="table table-hover">
+            <tbody>
+               <tr>
+                  <th>Book Code</th>
+                  <th>Book Name</th>
+                  <th>Author</th>
+                  <th>Published Year</th>
+                  <th>Available Copies</th>
+                  <th>Add to cart</th>
+               </tr>
+               <% books.forEach(function(books){   %>
+               <tr>
+                  <td><%= books.Book_Code %></td>
+                  <td><%= books.Book_Name %></td>
+                  <td><%= books.Author %></td>
+                  <td><%= books.Published_Year %></td>
+                  <td><%= books.Available_copies %></td>
+                  <td><a class="button" href="/books/<%= books.Book_Code %>/addtocart"><i class="fas fa-cart-plus fa-2x"></i></a></td>
+               </tr>
+               <% }); %>
+            </tbody>
+         </table>
+         <p>There are <%= books.length %> books in the database.</p>
+         <% } else { %>
+         <p>There are no books in the database.</p>
+         <% } %>
+      </div>
+   </body>
+</html>

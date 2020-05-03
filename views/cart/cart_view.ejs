@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Books</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+<!--      <link rel="stylesheet" type="text/css" href="style.css">  -->
+    <link rel="stylesheet" type="text/css" href="../style1.css"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/b1490666c5.js" crossorigin="anonymous"></script>
+  </head>
+
+<body class="container">
+  <% if (role!="Admin") { %>
+      <%- include('../navbar') %>
+       <% } else { %>
+      <%- include('../navbaradmin') %>
+      <% } %>
+  
+     <div class="jumbotron">
+     <h1>
+       <br/>
+      Cart Items
+    </h1>
+  </div>
+    <div class="box">
+      
+  
+    <% if (cart) { %>
+   
+  <table class="table">
+      <tbody><tr><th>Name</th><th>Item code</th><th>Item type</th><th>Available Copies</th><th>Delete</th></tr>
+        <% cart.forEach(function(cart){   %>
+        <tr>
+          <td><%= cart.Name %></td>
+          <td><%= cart.Code %></td>
+          <td><%= cart.Type %></td>
+          <td><%= cart.Available_copies%></td>
+          <td><a class="button" href="/cart/<%=cart.Code %>/delete"><i class="far fa-trash-alt fa-lg"></i></a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <p>There are <%= cart.length %> item in your cart.</p>
+  <% } else { %>
+    <p>There are no item in the database.</p>
+    <% } %>
+  <a class="btn btn-primary" href="/issue/checkout" role="button">Proceed to Checkout</a>
+    <a class="btn btn-primary" href="/cart/clear" role="button">Clear</a>
+      </div>
+ 
+</body>
+</html> 

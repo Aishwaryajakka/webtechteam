@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Users</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+<!--     <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="../style1.css"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b1490666c5.js" crossorigin="anonymous"></script>
+  </head>
+<body class="container">
+<% if (role!="Admin") { %>
+      <%- include('../navbar') %>
+       <% } else { %>
+      <%- include('../navbaradmin') %>
+      <% } %>
+<!--     <h1>
+      All the active members in the library
+    </h1> -->
+  <div class="jumbotron">
+     <h1>
+       <br/>
+      Members of the Library
+    </h1>
+  </div>
+    <div class="box">
+    <% if (users) { %>
+   <p>There are <%= users.length %> users active in the database.</p>
+<!--   <h6>
+      <a href="/cart">Cart <i class="fas fa-shopping-cart"></i></a>
+    </h6>  -->
+  <table class="table">
+      <tbody><tr><th>User Name</th><th>Name</th><th>Email Id</th><th>Role</th><th>Date of Membership</th><th>Modify</th><th>Remove</th></tr>
+        <% users.forEach(function(users){ let id = users.User_name  %>
+        <tr>
+          <td><%= users.User_name %></td>
+          <td><%= users.Name %></td>
+          <td><%= users.Email_Address%></td>
+          <td><%= users.Role%></td>
+          <td><%= users.Date_created.toDateString()%></td>
+          <td><a class="button" href="/users/<%= id %>/edituser"><i class="fas fa-user-edit fa-2x"></i></a></td>
+          <td><a class="button" href="/users/<%= id %>/deleteuser"><i class="fas fa-trash-alt fa-2x"></i></a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>There are no enrolled members in the library.</p>
+    <% } %>
+            
+  </div>
+</body>
+</html> 

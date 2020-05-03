@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Books</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- import the webpage's stylesheet -->
+    
+<!--     <link rel="stylesheet" type="text/css" href="style.css">  -->
+<!--      <link rel="stylesheet" type="text/css" href="../style1.css" title="Default Styles" media="screen"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/b1490666c5.js" crossorigin="anonymous"></script>
+    <style>
+      .container {
+ background-image: url("https://cdn.glitch.com/e243a847-f384-4482-a909-2afc179c591b%2Fphoto-1507842217343-583bb7270b66.jpeg?v=1587280100558");
+  height: 100%;
+  background-position: center;
+}
+      .box {
+  background-color: black;
+  margin: 30px auto;
+  opacity: 0.8;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+.jumbotron {
+  background-color: burlywood !important;
+  color: #B94629;
+  margin-bottom: -5px;
+}
+
+#Welcome {
+  text-align: center;
+}
+.navbar {
+  background-color: #B94629 !important;
+  color: White;
+}
+    </style>
+  </head>
+<body class= "container">
+<% if (role!="Admin") { %>
+      <%- include('../navbar') %>
+       <% } else { %>
+      <%- include('../navbaradmin') %>
+      <% } %>
+    <div class = "jumbotron">
+        <h1>
+          <br/>
+           Edit a new Book
+        </h1>
+    </div>
+  
+    
+  <div class="box">
+       <form action="/books<%= %>/editbook" method="post">
+      <div class="form-group">
+            <label for="Book_Code">Book Code</label>
+          <input type = "text" class="form-control" id="Book_Code" name="Book_Code" value="<%=Books.Book_Code%>" required minlength="4" maxlength="4" required readonly>
+      </div>
+      <div class="form-group">
+            <label for="Book_Name">Book Name</label>
+          <input type="text" class="form-control" id="Book_Name"  value="<%=Books.Book_Name%>" name="Book_Name" required> 
+      </div>
+      <div class="form-group">
+            <label for="Author">Author</label>
+          <input type="text" class="form-control" id="Author" value="<%=Books.Author%>" name="Author" required> </div>
+      <div class="form-group">
+        <label for="Genre">Genre</label>
+        <input type="text" class="form-control"  id="Genre" name="Genre"  value="<%=Books.Genre%>" required>
+      </div>
+      <div class="form-group">
+        <label for="Published_Year">Published Year</label>
+        <input type="text" class="form-control"  id="Published_Year" name="Published_Year"  pattern ="[0-9][0-9][0-9][0-9]" maxlength="4"  value="<%=Books.Published_Year%>" required>
+      </div>
+      <div class="form-group">
+        <label for="No_of_Pages">Number of Pages</label>
+        <input type="text" class="form-control" id="No_of_Pages" value="<%=Books.No_of_Pages%>"   pattern ="[0-9]+" minlength="1" name="No_of_Pages" required>
+      </div>
+      <div class="form-group">
+        <label for="Copies">Total Copies </label>
+        <input type="text" class="form-control" id="Copies" value="<%=Books.Copies%>"  name="Copies"  pattern ="[0-9]+" minlength="1" required>
+      </div>
+      <div class="form-group">
+        <label for="Copies">Available Copies </label>
+        <input type="text" class="form-control" id="Available_copies" value="<%=Books.Available_copies%>"   pattern ="[0-9]+" minlength="1" name="Available_copies" required >
+      </div>
+      <button type="submit" class="btn btn-primary">Update Book</button>
+  </form>
+  </div>
+
+  
+</body>
+</html> 
