@@ -208,7 +208,7 @@ We used _message.ejs_ to display the messages and are rendered on the current pa
 
 To test the application, any user can register and create their own profile and begin using any of the features on the website.
 
-To test the admin side of the application please use the admin username: tem74@pitt.edu and password: Pitt123.
+To test the admin side of the application please use the admin username: aishwrayajakka@hotmail.com and password: Pitt123.
 
 ### Challenges Faced
 
